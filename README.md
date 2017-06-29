@@ -36,7 +36,7 @@ This file uses OmaMittari API version 1.1.
 
 ## Authors
 
-* **Jarkko Lehtonen** - *Initial work* - [JarkkoInJatiko](https://github.com/JarkkoInJatiko/OmaMittariVBADemo)
+* **Jarkko Lehtonen** - *Initial work* - [JarkkoInJatiko/OmaMittariVBADemo](https://github.com/JarkkoInJatiko/OmaMittariVBADemo)
 
 ## License
 
