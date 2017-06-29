@@ -6,7 +6,7 @@ OmaMittari is developed by <a href="http://www.jatiko.fi">Jatiko Oy</a>.
 
 ## Getting Started
 
-Download OmaMittatiVBADemo.xlsm to your Windows computer. Make sure macros are allowed in Excel. Add your subscription key, username and APIToken in the Helpers module. In order to get them <b>you need to first <a href="https://kehitys.omamittari.fi/signup/">registrate</a> as an OmaMittari developer in order to get your own requiredsubscription.</b>
+Download OmaMittatiVBADemo.xlsm to your Windows computer. Make sure macros are allowed in Excel. Add your subscription key, username and APIToken in the Helpers module. In order to get them <b>you need to first <a href="https://kehitys.omamittari.fi/signup/">registrate</a> as an OmaMittari developer in order to get your own required subscription key.</b>
 
 ```
 Private Const sUserName As String = "zzzz" '*** Replace this with your UserName
