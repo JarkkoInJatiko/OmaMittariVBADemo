@@ -24,7 +24,7 @@ Press the buttons in Consumer API or ElectricityNetwork API sheets depending on 
 
 ## Deployment
 
-You can make your own Excel app having a proper UI based on these example requests.
+You can make your own Excel app having a proper UI based on these example requests. Do not leave username, APIToken and subscription key in the source code. Use <i>SaveCredentials</i> sub program to encrypt and save those to Windows registry.
 
 ## Contributing
 
