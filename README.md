@@ -1,87 +1,42 @@
 # OmaMittariVBADemo
-This Excel file demonstrates how to use OmaMittari gateway in VBA. You can find more information on OmaMittari and how to get energy data in Finland from a REST API in <a href="https://kehitys.omamittari.fi/">OmaMittari Developer Site</a>. This <a href="https://kehitys.omamittari.fi/blog/viesti4">blog post</a> explains the content of this file in more detail. Notice that <b>you need to first <a href="https://kehitys.omamittari.fi/signup/">registrate</a> as an OmaMittari developer in order to get your own subscription key required by this Excel app.</b>
-<p></p>
-As mentioned, this code is for demonstration purposes only and we don't expect to receive any contributions to it. However feel free to modify it to your own personal or commercial needs.
-<p></p>
+
+This Excel file demonstrates how to use OmaMittari gateway in VBA. You can find more information on OmaMittari and how to get energy data in Finland from a REST API in <a href="https://kehitys.omamittari.fi/">OmaMittari Developer Site</a>. This <a href="https://kehitys.omamittari.fi/blog/viesti4">blog post</a> explains the content of this file in more detail. 
+
 OmaMittari is developed by <a href="http://www.jatiko.fi">Jatiko Oy</a>.
-
-# Project Title
-
-One Paragraph of project description goes here
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Download OmaMittatiVBADemo.xlsm to your Windows computer. Make sure macros are allowed in Excel. Add your subscription key, username and APIToken in the Helpers module. In order to get them <b>you need to first <a href="https://kehitys.omamittari.fi/signup/">registrate</a> as an OmaMittari developer in order to get your own requiredsubscription.</b>
+
+```
+Private Const sUserName As String = "zzzz" '*** Replace this with your UserName
+Private Const sAPItoken As String = "zzzz" '*** Replace this with your APItoken
+Private Const sSubscription_Key As String = "zzzz" '*** Replace this with your Subscription Key
+```
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+This app requires Microsoft Excel (with macros allowed) to be installed in your computer plus credentials (username, APIToken and subscription key)
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+Press the buttons in Consumer API or ElectricityNetwork API sheets depending on your username and API Token (whether they are credentials for a customer or for a network company. The macro echoes the API response on the screen.
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+You can make your own Excel app having a proper UI based on these example requests.
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+This code is for demonstration purposes only and we don't expect to receive any contributions to it. However feel free to modify it to your own personal or commercial needs.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+This file uses OmaMittari API version 1.1.
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Jarkko Lehtonen** - *Initial work* - [JarkkoInJatiko](https://github.com/JarkkoInJatiko)
 
 ## License
 
@@ -89,8 +44,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
-
-
+Hat tip to those coders whose code was used in this project:
+* Barry Dunne in modCrypt module
+* Phil Fresle in SHA256 module
+* Michael Glaser in JSON module and in cJSONScript module
+* Steve McMahon in cStringBuilder
