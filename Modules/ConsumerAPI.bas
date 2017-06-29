@@ -1,7 +1,7 @@
 Attribute VB_Name = "ConsumerAPI"
 '***********************************************************************
 '* OmaMittari service platform demo - OmaMittariVBADemo.xlsm
-'* Copyright (c) 2017, Jatiko Oy, email: info@jatiko.fi              Date:21.6.2017
+'* Copyright (c) 2017, Jatiko Oy, email: info@jatiko.fi              Date:29.6.2017
 '* You have to obey OmaMittari Terms of usage
 '***********************************************************************
 
@@ -121,7 +121,7 @@ MsgBox strJSON, vbInformation, "strJSON"
 'Convert json string to object and Debug Print some values
 Set objJSON = clsJSON.parse(strJSON)
 If Not objJSON Is Nothing Then
-    Debug.Print objJSON("Käyttöpaikkatunnus")
+    Debug.Print objJSON("KÃ¤yttÃ¶paikkatunnus")
     Debug.Print objJSON("Osoite")("Katuosoite")
 End If
 End Sub
@@ -158,7 +158,7 @@ MsgBox strJSON, vbInformation, "strJSON"
 Set objJSON = clsJSON.parse(strJSON)
 If Not objJSON Is Nothing Then
     For i = 1 To objJSON.Count
-        Debug.Print objJSON(i)("Käyttöpaikkatunnus")
+        Debug.Print objJSON(i)("KÃ¤yttÃ¶paikkatunnus")
         Debug.Print objJSON(i)("Nimi")
     Next i
 End If
@@ -178,7 +178,7 @@ MsgBox strJSON, vbInformation, "strJSON"
 Set objJSON = clsJSON.parse(strJSON)
 If Not objJSON Is Nothing Then
     For i = 1 To objJSON.Count
-        Debug.Print objJSON(i)("Käyttöpaikkatunnus")
+        Debug.Print objJSON(i)("KÃ¤yttÃ¶paikkatunnus")
         Debug.Print objJSON(i)("Osoite")("Katuosoite")
     Next i
 End If
@@ -198,7 +198,7 @@ MsgBox strJSON, vbInformation, "strJSON"
 Set objJSON = clsJSON.parse(strJSON)
 If Not objJSON Is Nothing Then
     For i = 1 To objJSON.Count
-        Debug.Print objJSON(i)("Käyttöpaikkatunnus")
+        Debug.Print objJSON(i)("KÃ¤yttÃ¶paikkatunnus")
         Debug.Print objJSON(i)("Osoite")("Katuosoite")
     Next i
 End If
@@ -245,7 +245,7 @@ Set objJSON = clsJSON.parse(strJSON)
 If Not objJSON Is Nothing Then
     For i = 1 To objJSON("Mittausjaksot").Count
         Debug.Print objJSON("Mittausjaksot")(i)("aika")
-        Debug.Print objJSON("Mittausjaksot")(i)("sähkömittaus")("Pätöteho")
+        Debug.Print objJSON("Mittausjaksot")(i)("sÃ¤hkÃ¶mittaus")("PÃ¤tÃ¶teho")
     Next i
 End If
 End Sub
@@ -268,7 +268,7 @@ Set objJSON = clsJSON.parse(strJSON)
 If Not objJSON Is Nothing Then
     For i = 1 To objJSON("Mittausjaksot").Count
         Debug.Print objJSON("Mittausjaksot")(i)("aika")
-        Debug.Print objJSON("Mittausjaksot")(i)("sähkömittaus")("Pätöteho")
+        Debug.Print objJSON("Mittausjaksot")(i)("sÃ¤hkÃ¶mittaus")("PÃ¤tÃ¶teho")
     Next i
 End If
 End Sub
@@ -292,7 +292,7 @@ Set objJSON = clsJSON.parse(strJSON)
 If Not objJSON Is Nothing Then
     For i = 1 To objJSON("Mittausjaksot").Count
         Debug.Print objJSON("Mittausjaksot")(i)("aika")
-        Debug.Print objJSON("Mittausjaksot")(i)("sähkömittaus")("Pätöteho")
+        Debug.Print objJSON("Mittausjaksot")(i)("sÃ¤hkÃ¶mittaus")("PÃ¤tÃ¶teho")
     Next i
 End If
 End Sub
@@ -316,7 +316,7 @@ Set objJSON = clsJSON.parse(strJSON)
 If Not objJSON Is Nothing Then
     For i = 1 To objJSON("Mittausjaksot").Count
         Debug.Print objJSON("Mittausjaksot")(i)("aika")
-        Debug.Print objJSON("Mittausjaksot")(i)("sähkömittaus")("Pätöteho")
+        Debug.Print objJSON("Mittausjaksot")(i)("sÃ¤hkÃ¶mittaus")("PÃ¤tÃ¶teho")
     Next i
 End If
 End Sub
@@ -339,7 +339,7 @@ Set objJSON = clsJSON.parse(strJSON)
 If Not objJSON Is Nothing Then
     For i = 1 To objJSON("Mittausjaksot").Count
         Debug.Print objJSON("Mittausjaksot")(i)("aika")
-        Debug.Print objJSON("Mittausjaksot")(i)("sähkömittaus")("Pätöteho")
+        Debug.Print objJSON("Mittausjaksot")(i)("sÃ¤hkÃ¶mittaus")("PÃ¤tÃ¶teho")
     Next i
 End If
 End Sub
@@ -385,7 +385,7 @@ Set objJSON = clsJSON.parse(strJSON)
 If Not objJSON Is Nothing Then
     For i = 1 To objJSON("Mittausjaksot").Count
         Debug.Print objJSON("Mittausjaksot")(i)("aika")
-        Debug.Print objJSON("Mittausjaksot")(i)("sähkömittaus")("Pätöteho")
+        Debug.Print objJSON("Mittausjaksot")(i)("sÃ¤hkÃ¶mittaus")("PÃ¤tÃ¶teho")
     Next i
 End If
 End Sub
@@ -408,7 +408,7 @@ Set objJSON = clsJSON.parse(strJSON)
 If Not objJSON Is Nothing Then
     For i = 1 To objJSON("Mittausjaksot").Count
         Debug.Print objJSON("Mittausjaksot")(i)("aika")
-        Debug.Print objJSON("Mittausjaksot")(i)("sähkömittaus")("Pätöteho")
+        Debug.Print objJSON("Mittausjaksot")(i)("sÃ¤hkÃ¶mittaus")("PÃ¤tÃ¶teho")
     Next i
 End If
 End Sub
@@ -432,7 +432,7 @@ Set objJSON = clsJSON.parse(strJSON)
 If Not objJSON Is Nothing Then
     For i = 1 To objJSON("Mittausjaksot").Count
         Debug.Print objJSON("Mittausjaksot")(i)("aika")
-        Debug.Print objJSON("Mittausjaksot")(i)("sähkömittaus")("Pätöteho")
+        Debug.Print objJSON("Mittausjaksot")(i)("sÃ¤hkÃ¶mittaus")("PÃ¤tÃ¶teho")
     Next i
 End If
 End Sub
@@ -456,7 +456,7 @@ Set objJSON = clsJSON.parse(strJSON)
 If Not objJSON Is Nothing Then
     For i = 1 To objJSON("Mittausjaksot").Count
         Debug.Print objJSON("Mittausjaksot")(i)("aika")
-        Debug.Print objJSON("Mittausjaksot")(i)("sähkömittaus")("Pätöteho")
+        Debug.Print objJSON("Mittausjaksot")(i)("sÃ¤hkÃ¶mittaus")("PÃ¤tÃ¶teho")
     Next i
 End If
 End Sub
@@ -479,7 +479,7 @@ Set objJSON = clsJSON.parse(strJSON)
 If Not objJSON Is Nothing Then
     For i = 1 To objJSON("Mittausjaksot").Count
         Debug.Print objJSON("Mittausjaksot")(i)("aika")
-        Debug.Print objJSON("Mittausjaksot")(i)("sähkömittaus")("Pätöteho")
+        Debug.Print objJSON("Mittausjaksot")(i)("sÃ¤hkÃ¶mittaus")("PÃ¤tÃ¶teho")
     Next i
 End If
 End Sub
