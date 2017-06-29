@@ -20,7 +20,7 @@ This app requires Microsoft Excel (with macros allowed) to be installed in your 
 
 ## Running the tests
 
-Press the buttons in Consumer API or ElectricityNetwork API sheets depending on your username and API Token (whether they are credentials for a customer or for a network company. The macro echoes the API response on the screen.
+Press the buttons in Consumer API or ElectricityNetwork API sheets depending on your username and API Token (whether they are credentials for a customer or for a network company). The macro echoes the API response on the screen.
 
 ## Deployment
 
@@ -36,7 +36,7 @@ This file uses OmaMittari API version 1.1.
 
 ## Authors
 
-* **Jarkko Lehtonen** - *Initial work* - [JarkkoInJatiko](https://github.com/JarkkoInJatiko)
+* **Jarkko Lehtonen** - *Initial work* - [JarkkoInJatiko](https://github.com/JarkkoInJatiko/OmaMittariVBADemo)
 
 ## License
 
