@@ -1,9 +1,8 @@
-Attribute VB_Name = "Helpers"
 '***********************************************************************
-'* OmaMittari palvelualustan demo - OmaMittariDemoCode.xlsm
-'* Copyright (c) 2017, Jatiko Oy, email: info@jatiko.fi              Pvm:21.6.2017
-'* T‰t‰ l‰hdekoodia saa k‰ytt‰‰ ja levitt‰‰ vapaasti, kunhan noudattaa
-'* OmaMittari palvelun ehtoja ja modulikohtaisia rajoituksia
+'* OmaMittari platform demo - OmaMittariDemoCode.xlsm
+'* Copyright (c) 2017, Jatiko Oy, email: info@jatiko.fi   Date:6.10.2017
+'* MIT License
+'* OmaMittari Terms of usage, additional restrictions may be in each module
 '***********************************************************************
 
 '*** Find out the location of the Temp directory
@@ -14,12 +13,17 @@ Private Declare Function WideCharToMultiByte Lib "kernel32" (ByVal CodePage As L
     ByVal lpDefaultChar As Long, ByVal lpUsedDefaultChar As Long) As Long
 
 '*** Change these three credential constants to "" in the source code after running SaveCredentials() with real values on your computer
-Private Const sUserName As String = "zzzz" '*** Replace this with your UserName
-Private Const sAPItoken As String = "zzzz" '*** Replace this with your APItoken
-Private Const sSubscription_Key As String = "zzzz" '*** Replace this with your Subscription_Key
-Private Const MY_CRYPTO_KEY As String = "tdfuhwfnasdfisdflkaa"
+Private Const UserName As String = "testikuluttaja" '*** Demo UserName, replace this with your UserName
+Private Const APItoken As String = "xyz123" '*** DemoAPItoken, replace this with your APItoken
+Private Const Subscription_Key As String = "YourSubscriptionKeyFromDeveloperPortal" '*** Replace this with your Subscription Key from Developer Portal
+Private Const MY_CRYPTO_KEY As String = "dkfoR5lsk#tpT" '*** Used only if saving encrypted credentials - not implemented
 
-'*** RECOMMENDATION: Encrypt credentials and save them to Windows registry, then change credentials to "" in this source code. Running this code saves credentials to registry.
+Private sUserName As String
+Private sAPItoken As String
+Private sSubscription_Key As String
+
+'*** RECOMMENDATION: Encrypt credentials and save them to Windows registry or memory stick away from source code,
+'*** then change credentials to "" in this source code. Running this code saves credentials to registry.
 Sub SaveCredentials()
 EncryptionCSPConnect
 SaveSetting "OmaMittari", "VBAExcelDemo", "UserName", EncryptData(sUserName, MY_CRYPTO_KEY)
@@ -28,24 +32,36 @@ SaveSetting "OmaMittari", "VBAExcelDemo", "Subscription_Key", EncryptData(sSubsc
 EncryptionCSPDisconnect
 End Sub
 
+'*** RECOMMENDATION: Decrypt credentials from Windows registry or memory stick after clearing them from source code,
+'*** Running this code gets credentials from registry.
+Sub GetCredentials()
+EncryptionCSPConnect
+sUserName = DecryptData(GetSetting("OmaMittari", "VBAExcelDemo", "UserName", EncryptData(sUserName, MY_CRYPTO_KEY)), MY_CRYPTO_KEY)
+sAPItoken = DecryptData(GetSetting("OmaMittari", "VBAExcelDemo", "APItoken", EncryptData(sAPItoken, MY_CRYPTO_KEY)), MY_CRYPTO_KEY)
+sSubscription_Key = DecryptData(GetSetting("OmaMittari", "VBAExcelDemo", "Subscription_Key", EncryptData(sSubscription_Key, MY_CRYPTO_KEY)), MY_CRYPTO_KEY)
+EncryptionCSPDisconnect
+
+'*** In case Windows registry is empty and contants are not
+If Len(sUserName) = 0 Then sUserName = UserName
+If Len(sAPItoken) = 0 Then sAPItoken = APItoken
+If Len(sSubscription_Key) = 0 Then sSubscription_Key = Subscription_Key
+End Sub
+
+
 '*** Get data from REST service
 Function JsonDataFetch(URI_Start As String, URI_End As String) As String
 Dim p As Object
 Dim HttpReq As Object
 Dim timestr As String, UserName As String, APItoken As String, Subscription_Key As String
 
-EncryptionCSPConnect
-UserName = DecryptData(GetSetting("OmaMittari", "VBAExcelDemo", "UserName", EncryptData(sUserName, MY_CRYPTO_KEY)), MY_CRYPTO_KEY)
-APItoken = DecryptData(GetSetting("OmaMittari", "VBAExcelDemo", "APItoken", EncryptData(sAPItoken, MY_CRYPTO_KEY)), MY_CRYPTO_KEY)
-Subscription_Key = DecryptData(GetSetting("OmaMittari", "VBAExcelDemo", "Subscription_Key", EncryptData(sSubscription_Key, MY_CRYPTO_KEY)), MY_CRYPTO_KEY)
-EncryptionCSPDisconnect
-
+SaveCredentials '*** After running this code at least once you can comment this row and clear credentials from the source code
+GetCredentials
 Set HttpReq = CreateObject("MSXML2.XMLHTTP")
 HttpReq.Open "GET", URI_Start & "/" & URI_End
-HttpReq.setRequestHeader "Ocp-Apim-Subscription-Key", Subscription_Key
+HttpReq.setRequestHeader "Ocp-Apim-Subscription-Key", sSubscription_Key
 
 timestr = timeNow() 'Pick timestring for header
-HttpReq.setRequestHeader "Authorization", authStr(APItoken, "/" & URI_End, UserName, timestr)
+HttpReq.setRequestHeader "Authorization", authStr(sAPItoken, "/" & URI_End, sUserName, timestr)
 
 Call HttpReq.send
 Do While HttpReq.readyState <> 4
@@ -56,7 +72,7 @@ Set p = Nothing
 Set HttpReq = Nothing
 End Function
 
-'*** Kellonaika merkkijonoksi oikeassa formaatissa
+'*** Time to string in right format
 Function timeNow() As String
     timeNow = Format(Now(), "yyyyMMddhhmmss")
 End Function
@@ -111,5 +127,3 @@ Else
     UTF16To8 = ""
 End If
 End Function
-
-
